@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const ShoppingCart = require("../models/ShoppingCart");
 
-
-
 router.post("/add", async (req, res) => {
   const { pizzaId, name, price, image } = req.body;
 
@@ -30,12 +28,10 @@ router.post("/add", async (req, res) => {
 });
 
 
-
 router.get("/", async (req, res) => {
   const items = await ShoppingCart.find();
   res.json(items);
 });
-
 
 
 router.put("/:pizzaId", async (req, res) => {
@@ -51,7 +47,6 @@ router.put("/:pizzaId", async (req, res) => {
   await item.save();
   res.json(item);
 });
-
 
 
 router.delete("/:pizzaId", async (req, res) => {
