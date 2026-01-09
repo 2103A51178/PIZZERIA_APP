@@ -3,7 +3,7 @@ const router = express.Router();
 const ShoppingCart = require("../models/ShoppingCart");
 
 
-// 👉 ADD TO CART
+
 router.post("/add", async (req, res) => {
   const { pizzaId, name, price, image } = req.body;
 
@@ -30,14 +30,14 @@ router.post("/add", async (req, res) => {
 });
 
 
-// 👉 GET CART ITEMS
+
 router.get("/", async (req, res) => {
   const items = await ShoppingCart.find();
   res.json(items);
 });
 
 
-// 👉 UPDATE QUANTITY (+ / -)
+
 router.put("/:pizzaId", async (req, res) => {
   const { action } = req.body; // "inc" or "dec"
 
@@ -53,7 +53,7 @@ router.put("/:pizzaId", async (req, res) => {
 });
 
 
-// 👉 DELETE ITEM
+
 router.delete("/:pizzaId", async (req, res) => {
   await ShoppingCart.deleteOne({ pizzaId: req.params.pizzaId });
   res.json({ message: "Item removed" });
