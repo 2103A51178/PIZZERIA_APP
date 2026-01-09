@@ -6,7 +6,7 @@ export default function BuildPizza() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [total, setTotal] = useState(0);
 
-  // 🔹 Fetch ingredients from backend
+  
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/ingredients")
@@ -14,12 +14,12 @@ export default function BuildPizza() {
       .catch(err => console.log(err));
   }, []);
 
-  // 🔹 Handle checkbox select/unselect
+  
   const handleChange = (ingredient) => {
     const exists = selectedIngredients.find(i => i.id === ingredient.id);
 
     if (exists) {
-      // remove ingredient
+      // remove ingredien
       setSelectedIngredients(
         selectedIngredients.filter(i => i.id !== ingredient.id)
       );
@@ -33,7 +33,6 @@ export default function BuildPizza() {
 
   return (
     <div className="container mt-4">
-      {/* 🔹 Width control */}
       <div
         className="mx-auto p-3 shadow rounded"style={{ maxWidth: "800px" }}>
         <h3 className="text-center mb-4">🍕 Build Your Pizza</h3>
@@ -81,7 +80,7 @@ export default function BuildPizza() {
           </tbody>
         </table>
 
-        {/* 🔹 Total Section */}
+        
         <div className="text-end mt-3">
           <h4>
             Total Price:{" "}
